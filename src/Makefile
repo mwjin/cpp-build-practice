@@ -8,7 +8,7 @@ OBJS = foo.o bar.o main.o
 main.o: main.cpp foo.h bar.h
 	$(CC) $(CXXFLAGS) -c main.cpp
 
-main: foo.o bar.o main.o
+main: $(OBJS)
 	$(CC) $(CXXFLAGS) $(OBJS) -o main
 
 .PHONY: clean
