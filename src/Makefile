@@ -1,11 +1,15 @@
+CC = g++
+CXXFLAGS = -g -Wall -std=c++17
+OBJS = foo.o bar.o main.o
+
 foo.o : foo.h foo.cpp
-	g++ -c foo.cpp
+	$(CC) $(CXXFLAGS) -c foo.cpp
 
 bar.o : bar.h bar.cpp
-	g++ -c bar.cpp
+	$(CC) $(CXXFLAGS) -c bar.cpp
 
 main.o : main.cpp foo.h bar.h
-	g++ -c main.cpp
+	$(CC) $(CXXFLAGS) -c main.cpp
 
 main : foo.o bar.o main.o
-	g++ foo.o bar.o main.o -o main
+	$(CC) $(CXXFLAGS) $(OBJS) -o main
