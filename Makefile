@@ -12,6 +12,8 @@ SRC_DIR = ./src
 # 오브젝트 파일 디렉토리
 OBJ_DIR = ./obj
 
+INCLUDE = -Iinclude/
+
 # 생성하고자 하는 실행 파일 이름
 TARGET = main
 
@@ -30,7 +32,7 @@ DEPS = $(OBJECTS:.o=.d)
 all: main
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@ $(LDFLAGS) -MD
+	$(CC) $(CXXFLAGS) $(INCLUDE) -c $< -o $@ $(LDFLAGS) -MD
 
 $(TARGET) : $(OBJECTS)
 	$(CC) $(CXXFLAGS) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
