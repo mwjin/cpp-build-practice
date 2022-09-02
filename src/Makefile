@@ -14,5 +14,6 @@ main.o: main.cpp foo.h bar.h
 main: foo.o bar.o main.o
 	$(CC) $(CXXFLAGS) $(OBJS) -o main
 
+.PHONY: clean
 clean:
 	rm -f $(OBJS) main
